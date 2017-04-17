@@ -31,6 +31,7 @@
 
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
+    //filter returns the true items
     const fifteen = inventors.filter(inventor => (inventor.year>= 1500 && inventor.year<= 1599));
     //is the same as
     const fifteen = inventors.filter(inventor => {  //function(inventor) { 
@@ -46,7 +47,7 @@
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
-    const birthOrder = inventors.sort((a,b) => a.year > b.year ? 1 : -1);
+    const birthOrder = inventors.sort((a,b) => a.year > b.year ? 1 : -1); //is a bigger than b? if so do nothing and if not swap and b is now the thing you compare to 
     console.log(birthOrder);
 
     // Array.prototype.reduce()
@@ -66,6 +67,13 @@
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+    const category = document.querySelector('.mw-category');
+    const links = Array.from(category.querySelectorAll('a'));
+
+    const de = links
+                .map(link => link.textContent)
+                .filter(streetName => streetName.includes('de'));
+
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
